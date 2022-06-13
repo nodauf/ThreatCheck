@@ -11,7 +11,7 @@ on:
     
 defaults:
   run:
-    working-directory: ./ThreatCheck/ThreatCheck
+    working-directory: ./ThreatCheck
 
 jobs:
   build:
@@ -26,6 +26,8 @@ jobs:
         dotnet-version: 6.0.*
     - name: Restore dependencies
       run: dotnet restore
+    - name: Restore dependencies Nuget
+      run: nuget restore
     - name: Build
       run: dotnet build --no-restore --configuration Release
     - name: Test
